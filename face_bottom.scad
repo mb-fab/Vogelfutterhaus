@@ -50,16 +50,19 @@ module face_bottom()
         // nose cutout on the sides
         for (x=[+house_x/2-material_z/2, -house_x/2+material_z/2])
         {
-            translate([
-                x,
-                0,
-                0
-                ])
-            cube([
-                material_z*1.001,
-                house_y/3,
-                material_z*1.2
-                ], center=true);
+            for (y=[-house_y/3, +house_y/3])
+            {
+                translate([
+                    x,
+                    y,
+                    0
+                    ])
+                cube([
+                    material_z*1.001,
+                    house_y/3,
+                    material_z*1.2
+                    ], center=true);
+            }
         }
     }
 }

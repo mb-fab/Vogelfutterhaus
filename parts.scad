@@ -25,8 +25,8 @@ module base_material()
 module part_front()
 {
     translate([
-        house_x/2,
-        0,
+        house_x/2 + material_z,
+        material_z,
         material_z/2
         ])
     rotate([
@@ -40,8 +40,8 @@ module part_front()
 module part_back()
 {
     translate([
-        house_x/2,
-        0,
+        house_x/2 + material_z,
+        material_z,
         material_z/2
         ])
     rotate([
@@ -55,8 +55,8 @@ module part_back()
 module part_side()
 {
     translate([
-        house_y/2,
-        house_z/2,,
+        house_y/2 + material_z,
+        house_z/2 + material_z,
         material_z/2
         ])
     rotate([
@@ -116,22 +116,22 @@ module parts()
     part_front();
 
     translate([
-        house_x + spacing,
+        house_x + 2*material_z + spacing,
         0,
         0
         ])
     part_back();
 
     translate([
-        house_x/2,
-        house_z + material_z + spacing,
+        house_x/2 + 2*material_z,
+        house_z + 2*material_z + spacing,
         0
         ])
     part_roof_support();
 
     translate([
         roof_elevation + 2*roof_plane_x + 2*spacing,
-        house_z + roof_elevation + material_z + 2*spacing,
+        house_z + roof_elevation + 2*material_z + 2*spacing,
         0
         ])
     rotate([
@@ -143,7 +143,7 @@ module parts()
 
     translate([
         0,
-        house_z + roof_elevation + 2*material_z,
+        house_z + roof_elevation + 3*material_z,
         0
         ])
     {
@@ -157,15 +157,15 @@ module parts()
     }
 
     translate([
-        2*house_x + 2*spacing,
+        2*house_x + 3*material_z + 2*spacing,
         0,
         0
         ])
     part_side();
 
     translate([
-        2*house_x + 2*spacing,
-        house_z + spacing,
+        2*house_x + 3*material_z + 2*spacing,
+        house_z + material_z + spacing,
         0
         ])
     part_side();

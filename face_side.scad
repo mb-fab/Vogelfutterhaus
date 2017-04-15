@@ -51,20 +51,30 @@ module face_side()
         }
 
         // nose cutaways on the bottom
-        for (y=[-house_y/3, +house_y/3])
-        {
-            translate([
-                0,
-                y,
-                -house_z/2+material_z/2
-                ])
-            cube([
-                material_z*1.2,
-                house_y/3,
-                material_z*1.001
-                ], center=true);
-        }
+        translate([
+            0,
+            0,
+            -house_z/2+material_z/2
+            ])
+        cube([
+            material_z*1.2,
+            house_y/3,
+            material_z
+            ], center=true);
     }
+
+
+    // nose support structure
+    translate([
+        0,
+        0,
+        -house_z/2 - material_z/2
+        ])
+    cube([
+        material_z,
+        house_y - 2*material_z,
+        material_z
+        ], center=true);
 }
 
 face_side();

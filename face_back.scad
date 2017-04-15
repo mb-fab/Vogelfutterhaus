@@ -67,6 +67,32 @@ module face_back()
                 ], center=true);
         }
     }
+
+    // nose support structures
+    translate([
+        0,
+        0,
+        -material_z/2
+        ])
+    cube([
+        house_x,
+        material_z,
+        material_z
+        ], center=true);
+
+    for (x = [-house_x/2-material_z/2, +house_x/2+material_z/2])
+    {
+        translate([
+            x,
+            0,
+            house_z/2
+            ])
+        cube([
+            material_z,
+            material_z,
+            house_z/1.4
+            ], center=true);
+    }
 }
 
 face_back();
