@@ -1,6 +1,7 @@
 
 include <measures.scad>;
 use <face_back.scad>;
+use <patterns/pattern_triangles.scad>;
 
 module face_front()
 {
@@ -24,6 +25,26 @@ module face_front()
             r=door_radius,
             h=material_z*1.2,
             center=true
+            );
+
+        // pattern
+        translate([
+            0,
+            0,
+            window_z,
+            ])
+        // rotate into xz-plane
+        rotate([
+            90,
+            0,
+            0
+            ])
+        // make 3d
+        linear_extrude(material_z*1.001, center=true)
+        pattern_triangles(
+            7, 5,
+            3, 7,
+            1, 3
             );
    }
     

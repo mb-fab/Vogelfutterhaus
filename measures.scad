@@ -1,3 +1,4 @@
+
 /*
  * All measures of the model
  * Default units: Millimeters
@@ -20,6 +21,8 @@ house_z = 60;
 door_x = 35;
 door_z = 35;
 door_radius = 35/2;
+
+window_z = 12;
 
 // how many holes per edge
 strap_hole_count = 1;

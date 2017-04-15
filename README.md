@@ -13,3 +13,5 @@ Lizenz: wahlweise GNU GPLv3 oder CC-BY-SA
 * kann man leicht ausputzen
 * kann man festbinden
 
+<img src="https://raw.githubusercontent.com/mb-fab/Vogelfutterhaus/master/model.png"/>
+
