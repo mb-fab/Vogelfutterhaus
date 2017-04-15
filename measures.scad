@@ -22,10 +22,10 @@ door_z = 35;
 door_radius = 35/2;
 
 // how many holes per edge
-strap_hole_count = 3;
-strap_hole_radius = 4;
+strap_hole_count = 1;
+strap_hole_radius = 3;
 strap_hole_spacing = house_y/(strap_hole_count+1);
-strap_hole_to_edge = 8;
+strap_hole_to_edge = 7;
 
 // angle between upper house cuboid edge and roof plane in degrees
 roof_angle = 30;
@@ -39,3 +39,11 @@ roof_hypothenuse = 1/cos(roof_angle) * house_x/2;
 // make roof a little longer than required
 roof_plane_x = roof_hypothenuse * 1.2;
 roof_plane_y = house_y * 1.2;
+
+screw_radius = 4;
+screw_length = 20;
+washer_radius = 9;
+nut_height = 3.2;
+nut_wrench_size = 7;
+// length between screw head and upper edge of nut
+nut_position = 7;

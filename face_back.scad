@@ -1,7 +1,7 @@
 
 include <measures.scad>;
 
-module face_back()
+module pentagon()
 {
     // rectangle
     translate([
@@ -32,7 +32,41 @@ module face_back()
         [0,house_z+roof_elevation],
         [-house_x/2,house_z]
         ]);
-        
+}
+
+module face_back()
+{
+    difference()
+    {
+        pentagon();
+
+        // bottom nose cutout
+        translate([
+            0,
+            0,
+            material_z/2
+            ])
+        cube([
+            house_x/3,
+            material_z*1.2,
+            material_z*1.001
+            ], center=true);
+
+        // side nose cutouts
+        for (x=[-house_x/2+material_z/2, +house_x/2-material_z/2])
+        {
+            translate([
+                x,
+                0,
+                house_z/2
+                ])
+            cube([
+                material_z*1.001,
+                material_z*1.001,
+                house_z/3
+                ], center=true);
+        }
+    }
 }
 
 face_back();

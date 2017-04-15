@@ -11,6 +11,7 @@ module face_side()
             house_z
             ], center=true);
 
+        // hole
         for (i=[1:strap_hole_count])
         {
             translate([
@@ -29,6 +30,39 @@ module face_side()
                 h=material_z*1.2,
                 center=true
                 );
+        }
+
+        // nose cutaways on the side
+        for (y=[-house_y/2+material_z/2, +house_y/2-material_z/2])
+        {
+            for (z=[+house_z/3, -house_z/3])
+            {
+                translate([
+                    0,
+                    y,
+                    z
+                    ])
+                cube([
+                    material_z*1.2,
+                    material_z*1.001,
+                    house_z/3
+                    ], center=true);
+            }
+        }
+
+        // nose cutaways on the bottom
+        for (y=[-house_y/3, +house_y/3])
+        {
+            translate([
+                0,
+                y,
+                -house_z/2+material_z/2
+                ])
+            cube([
+                material_z*1.2,
+                house_y/3,
+                material_z*1.001
+                ], center=true);
         }
     }
 }

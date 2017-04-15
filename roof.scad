@@ -5,21 +5,22 @@ use <roof_support.scad>;
 
 module roof()
 {
+    color("red")
     roof_planes();
 
-    translate([
-        0,
+    color("saddlebrown")
+    for (y=[
         -house_y/2 + 1.5*material_z,
-        -roof_elevation
+        +house_y/2 - 1.5*material_z
         ])
-    roof_support();
-
-    translate([
-        0,
-        +house_y/2 - 1.5*material_z,
-        -roof_elevation
-        ])
-    roof_support();
+    {
+        translate([
+            0,
+            y,
+            -roof_elevation
+            ])
+        roof_support();
+    }
 }
 
 roof();

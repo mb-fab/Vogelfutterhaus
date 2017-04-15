@@ -47,10 +47,9 @@ color("yellow")
     face_side();
 }
 
-color("red")
 translate([
     0,
     0,
     house_z + roof_elevation
     ])
-#roof();
+roof();
