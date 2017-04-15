@@ -1,3 +1,6 @@
 [submodule "patterns"]
 	path = patterns
 	url = git@github.com:mb-fab/laser-patterns.git
+[submodule "utils"]
+	path = utils
+	url = https://github.com/mb-fab/svg-console-utils

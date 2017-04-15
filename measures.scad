@@ -8,8 +8,8 @@
 $fn = 50;
 
 // material to cut from
-material_x = 300;
-material_y = 200;
+material_x = 430;
+material_y = 270;
 material_z = 3;
 
 // house cuboid
