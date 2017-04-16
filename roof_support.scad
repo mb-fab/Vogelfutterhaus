@@ -66,18 +66,19 @@ module roof_support()
     {
         roof_support_positive();
 
-        // triangle
-        scale([
-            1,
-            1.2,
-            1
-            ])
-        translate([
+        // cutout polygon
+        rotate([
+            90,
             0,
-            material_z/2,
-            -roof_elevation + roof_support_cutout_height
+            0
             ])
-        roof_support_triangle();
+        linear_extrude(material_z*1.2, center=true)
+        #polygon([
+            [-roof_support_cutout_inset, -0.005],
+            [-house_x * 1/20, roof_support_cutout_height],
+            [house_x * 1/20, roof_support_cutout_height],
+            [roof_support_cutout_inset, -0.005]
+            ]);
     }
 }
 

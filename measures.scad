@@ -47,7 +47,8 @@ roof_angle = 30;
 // elevation inside roof corner above upper edge of house cuboid
 roof_elevation = tan(roof_angle) * house_x/2;
 
-roof_support_cutout_height = roof_elevation/2;
+roof_support_cutout_height = roof_elevation * 1/3;
+roof_support_cutout_inset = house_x * 6/20;
 
 // length of a roof plane from top corner to house cuboid corner
 roof_hypothenuse = 1/cos(roof_angle) * house_x/2;
