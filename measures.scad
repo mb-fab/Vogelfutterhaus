@@ -7,7 +7,7 @@
 $fn = 50;
 
 // material to cut from
-material_x = 430;
+material_x = 480;
 material_y = 270;
 material_z = 3;
 

@@ -1,5 +1,5 @@
 
-project_files=$(ls *.scad)
+project_files = $(wildcard *.scad)
 
 all: model.png cuts-hairline.svg
 

@@ -6,6 +6,7 @@ use <face_bottom.scad>;
 use <face_side.scad>;
 use <roof_plane.scad>;
 use <roof_support.scad>;
+use <wall.scad>;
 
 module base_material()
 {
@@ -107,6 +108,36 @@ module part_roof_support()
     roof_support();
 }
 
+module part_roof_support2()
+{
+    translate([
+        house_x/2,
+        roof_elevation,
+        material_z/2 +0.005
+        ])
+    rotate([
+        90,
+        0,
+        0
+        ])
+    roof_support_with_screw_cavities();
+}
+
+module part_wall()
+{
+    translate([
+        wall_z/2 + material_z,
+        wall_y/2 + material_z,
+        0
+        ])
+    rotate([
+        0,
+        90,
+        0
+        ])
+    wall();
+}
+
 spacing = 1;
 
 base_material();
@@ -157,6 +188,25 @@ module parts()
     }
 
     translate([
+        2*roof_plane_x + 3*spacing + 2*roof_elevation - roof_support_cutout_height + material_z,
+        house_z + roof_elevation + 2*material_z + 2*spacing,
+        0
+        ])
+    rotate([
+        0,
+        0,
+        90
+        ])
+    part_roof_support2();
+
+    translate([
+        2*roof_plane_x + 4*spacing + 2*roof_elevation - roof_support_cutout_height + material_z,
+        house_z + roof_elevation + material_z + roof_plane_y - house_y + 2*spacing,
+        0
+        ])
+    part_bottom();
+
+    translate([
         2*house_x + 3*material_z + 2*spacing,
         0,
         0
@@ -171,11 +221,11 @@ module parts()
     part_side();
 
     translate([
-        2*roof_plane_x + roof_elevation + 3*spacing,
-        house_z + roof_elevation + material_z + roof_plane_y - house_y + 2*spacing,
+        2*house_x + house_y + 4*material_z + 3*spacing,
+        0,
         0
         ])
-    part_bottom();
+    part_wall();
 }
 
 parts();
