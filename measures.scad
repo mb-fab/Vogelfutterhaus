@@ -21,7 +21,13 @@ door_x = 35;
 door_z = 35;
 door_radius = 35/2;
 
-window_z = 12;
+window_offset_z = 12;
+window_triangle_count_x = 7;
+window_triangle_count_y = 5;
+
+wall_y = house_y * 1/2;
+wall_z = house_z * 4/5;
+wall_offset_x = -15;
 
 // how many holes per edge
 strap_hole_count = 1;
@@ -54,7 +60,7 @@ nut_offset = 7;
 
 // M3
 screw_radius = 3.005;
-screw_length = 10;
+screw_length = 15;
 washer_radius = 7;
 nut_height = 2.2;
 nut_wrench_size = 7;

@@ -31,7 +31,7 @@ module face_front()
         translate([
             0,
             0,
-            window_z,
+            window_offset_z,
             ])
         // rotate into xz-plane
         rotate([
@@ -42,10 +42,23 @@ module face_front()
         // make 3d
         linear_extrude(material_z*1.001, center=true)
         pattern_triangles(
-            7, 5,
+            window_triangle_count_x,
+            window_triangle_count_y,
             3, 7,
             1, 3
             );
+
+        // hole for wall's nose
+        translate([
+            wall_offset_x,
+            0,
+            material_z + wall_z/2
+            ])
+        cube([
+            material_z,
+            material_z*1.2,
+            wall_z/3
+            ], center=true);
    }
     
 }

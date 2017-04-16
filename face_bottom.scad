@@ -64,6 +64,18 @@ module face_bottom()
                     ], center=true);
             }
         }
+
+        // cutout for the wall's bottom nose
+        translate([
+            wall_offset_x,
+            -house_y/2 + wall_y/2 + material_z,
+            0
+            ])
+        cube([
+            material_z,
+            wall_y/3,
+            material_z*1.2
+            ], center=true);
     }
 }
 
