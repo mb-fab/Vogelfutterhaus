@@ -1,5 +1,6 @@
 
 include <measures.scad>;
+use <screw.scad>;
 
 module face_side()
 {
@@ -45,10 +46,36 @@ module face_side()
                 cube([
                     material_z*1.2,
                     material_z*1.001,
-                    house_z/3
+                    house_z/3*1.001
                     ], center=true);
             }
         }
+
+        // cavity for screw fixture
+        translate([
+            0,
+            -house_y/2 -0.005 ,
+            0
+            ])
+        rotate([
+            90,
+            0,
+            0
+            ])
+        screw_cavity();
+
+        // cavity for screw fixture
+        translate([
+            0,
+            +house_y/2 +0.005,
+            0
+            ])
+        rotate([
+            -90,
+            0,
+            0
+            ])
+        screw_cavity();
 
         // nose cutaways on the bottom
         translate([

@@ -1,4 +1,3 @@
-
 /*
  * All measures of the model
  * Default units: Millimeters
@@ -43,10 +42,20 @@ roof_hypothenuse = 1/cos(roof_angle) * house_x/2;
 roof_plane_x = roof_hypothenuse * 1.2;
 roof_plane_y = house_y * 1.2;
 
+/*
+// M4
 screw_radius = 4;
 screw_length = 20;
 washer_radius = 9;
 nut_height = 3.2;
 nut_wrench_size = 7;
-// length between screw head and upper edge of nut
-nut_position = 7;
+nut_offset = 7;
+*/
+
+// M3
+screw_radius = 3.005;
+screw_length = 10;
+washer_radius = 7;
+nut_height = 2.2;
+nut_wrench_size = 7;
+nut_offset = 5;

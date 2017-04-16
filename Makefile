@@ -4,7 +4,7 @@ project_files=$(ls *.scad)
 all: model.png cuts-hairline.svg
 
 %.png: %.scad $(project_files)
-	openscad $< --preview -o $@
+	openscad $< --imgsize=1280,1024 --preview -o $@
 	convert $@ -trim $@
 
 projection.svg: projection.scad $(project_files)
