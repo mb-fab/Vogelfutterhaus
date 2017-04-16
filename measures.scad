@@ -29,6 +29,12 @@ wall_y = house_y * 1/2;
 wall_z = house_z * 4/5;
 wall_offset_x = -15;
 
+// pattern on the hallway wall
+wall_pattern_offset_y = -19;
+wall_pattern_offset_z = -19;
+wall_triangle_count_x = 5;
+wall_triangle_count_y = 4;
+
 // how many holes per edge
 strap_hole_count = 1;
 strap_hole_radius = 3;

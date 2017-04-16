@@ -56,7 +56,25 @@ module wall()
 */
 
         // triangle pattern
-        // TODO
+        translate([
+            0,
+            wall_pattern_offset_y,
+            wall_pattern_offset_z
+            ])
+        // rotate into yz-plane
+        rotate([
+            90,
+            0,
+            90
+            ])
+        // make 3d
+        linear_extrude(material_z*1.2, center=true)
+        pattern_triangles(
+            wall_triangle_count_x,
+            wall_triangle_count_y,
+            3, 7,
+            1, 3
+            );
     }
 }
 
