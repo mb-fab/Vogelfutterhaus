@@ -10,8 +10,8 @@ module roof()
 
     color("saddlebrown")
     for (y=[
-        -house_y/2 + 1.5*material_z,
-        +house_y/2 - 1.5*material_z
+        -house_y/2 + material_z/2 + roof_support_inset,
+        +house_y/2 - material_z/2 - roof_support_inset
         ])
     {
         translate([

@@ -1,54 +1,57 @@
 
 include <measures.scad>;
-use <roof_support.scad>;
 
 module roof_plane()
 {
-    translate([
-        0,
-        -roof_plane_y/2,
-        -material_z/2
-        ])
-    cube([
-        roof_plane_x,
-        roof_plane_y,
-        material_z
-        ]);
-}
-
-module roof_plane_right()
-{
     difference()
     {
-        // make it so, that the corner touches the y axis
         translate([
-            sin(roof_angle)*material_z/2,
             0,
-            cos(roof_angle)*material_z/2
+            -roof_plane_y/2,
+            -material_z/2
             ])
-        // tilt the roof
-        rotate([
-            0,
-            roof_angle,
-            0
-            ])
-        roof_plane();
+        cube([
+            roof_plane_x,
+            roof_plane_y,
+            material_z
+            ]);
 
         // cut holes for the roof support's nose
         for (y=[
             // where the supports will go, see roof.scad
-            -house_y/2 + 1.5*material_z,
-            +house_y/2 - 1.5*material_z
+            -house_y/2 + material_z/2 + roof_support_inset,
+            +house_y/2 - material_z/2 - roof_support_inset
             ])
         {
             translate([
-                0,
+                roof_hypothenuse/2,
                 y,
-                -roof_elevation
+                0
                 ])
-            roof_support();
+            cube([
+                roof_hypothenuse/3,
+                material_z,
+                material_z*1.2
+                ], center=true);
         }
     }
+}
+
+module roof_plane_right()
+{
+    // make it so, that the corner touches the y axis
+    translate([
+        sin(roof_angle)*material_z/2,
+        0,
+        cos(roof_angle)*material_z/2
+        ])
+    // tilt the roof
+    rotate([
+        0,
+        roof_angle,
+        0
+        ])
+    roof_plane();
 }
 
 module roof_plane_left()
@@ -68,5 +71,5 @@ module roof_planes()
     roof_plane_right();
 }
 
-roof_plane_right();
+roof_plane();
 

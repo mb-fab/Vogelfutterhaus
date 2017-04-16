@@ -54,6 +54,9 @@ roof_hypothenuse = 1/cos(roof_angle) * house_x/2;
 roof_plane_x = roof_hypothenuse * 1.2;
 roof_plane_y = house_y * 1.2;
 
+// inset from the house's front and back faces
+roof_support_inset = 7;
+
 /*
 // M4
 screw_radius = 4;
