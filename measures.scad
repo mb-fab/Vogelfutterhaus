@@ -47,15 +47,14 @@ roof_angle = 30;
 // elevation inside roof corner above upper edge of house cuboid
 roof_elevation = tan(roof_angle) * house_x/2;
 
+roof_support_cutout_height = roof_elevation/2;
+
 // length of a roof plane from top corner to house cuboid corner
 roof_hypothenuse = 1/cos(roof_angle) * house_x/2;
 
 // make roof a little longer than required
 roof_plane_x = roof_hypothenuse * 1.2;
 roof_plane_y = house_y * 1.2;
-
-// inset from the house's front and back faces
-roof_support_inset = 7;
 
 /*
 // M4

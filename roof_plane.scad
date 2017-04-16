@@ -19,8 +19,9 @@ module roof_plane()
         // cut holes for the roof support's nose
         for (y=[
             // where the supports will go, see roof.scad
-            -house_y/2 + material_z/2 + roof_support_inset,
-            +house_y/2 - material_z/2 - roof_support_inset
+            -house_y/2 + material_z*1.5,
+            0,
+            +house_y/2 - material_z*1.5
             ])
         {
             translate([

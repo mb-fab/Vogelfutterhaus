@@ -10,8 +10,8 @@ module roof()
 
     color("saddlebrown")
     for (y=[
-        -house_y/2 + material_z/2 + roof_support_inset,
-        +house_y/2 - material_z/2 - roof_support_inset
+        -house_y/2 + material_z*1.5,
+        +house_y/2 - material_z*1.5
         ])
     {
         translate([
@@ -21,6 +21,14 @@ module roof()
             ])
         roof_support();
     }
+
+    color("saddlebrown")
+    translate([
+        0,
+        0,
+        -roof_elevation
+        ])
+    roof_support_with_screw_cavities();
 }
 
 roof();
