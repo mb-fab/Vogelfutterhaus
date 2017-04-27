@@ -7,32 +7,36 @@
 $fn = 50;
 
 // material to cut from
-material_x = 480;
-material_y = 270;
+material_x = 610;
+material_y = 330;
 material_z = 3;
 
 // house cuboid
-house_x = 150;
-house_y = 110;
+house_x = 200;
+house_y = 140;
 house_z = 60;
+
+// make holes a little bigger than the corresponding noses
+hole_expansion = 0.1;
 
 // distances from left and bottom house edges
 door_x = 35;
 door_z = 35;
-door_radius = 35/2;
+door_radius = 40/2;
 
-window_offset_z = 12;
-window_triangle_count_x = 7;
-window_triangle_count_y = 5;
+window_offset_x = -21;
+window_offset_z = 5;
+window_triangle_count_x = 13;
+window_triangle_count_y = 6;
 
 wall_y = house_y * 1/2;
 wall_z = house_z * 4/5;
-wall_offset_x = -15;
+wall_offset_x = -35;
 
 // pattern on the hallway wall
-wall_pattern_offset_y = -19;
+wall_pattern_offset_y = -31;
 wall_pattern_offset_z = -19;
-wall_triangle_count_x = 5;
+wall_triangle_count_x = 8;
 wall_triangle_count_y = 4;
 
 // how many holes per edge
@@ -54,7 +58,7 @@ roof_support_cutout_inset = house_x * 6/20;
 roof_hypothenuse = 1/cos(roof_angle) * house_x/2;
 
 // make roof a little longer than required
-roof_plane_x = roof_hypothenuse * 1.2;
+roof_plane_x = roof_hypothenuse * 1.05;
 roof_plane_y = house_y * 1.2;
 
 /*
@@ -69,8 +73,8 @@ nut_offset = 7;
 
 // M3
 screw_radius = 3.005;
-screw_length = 15;
+screw_length = 8;
 washer_radius = 7;
-nut_height = 2.2;
-nut_wrench_size = 7;
-nut_offset = 5;
+nut_height = 2.4 -0.1;
+nut_wrench_size = 5.5 -0.1;
+nut_offset = material_z*1.5;

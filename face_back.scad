@@ -34,41 +34,11 @@ module pentagon()
         ]);
 }
 
-module face_back()
+module pentagon_with_support()
 {
-    difference()
-    {
-        pentagon();
+    pentagon();
 
-        // bottom nose cutout
-        translate([
-            0,
-            0,
-            material_z/2
-            ])
-        cube([
-            house_x/3,
-            material_z*1.2,
-            material_z*1.001
-            ], center=true);
-
-        // side nose cutouts
-        for (x=[-house_x/2+material_z/2, +house_x/2-material_z/2])
-        {
-            translate([
-                x,
-                0,
-                house_z/2
-                ])
-            cube([
-                material_z*1.001,
-                material_z*1.001,
-                house_z/3
-                ], center=true);
-        }
-    }
-
-    // nose support structures
+    // bottom nose support structure
     translate([
         0,
         0,
@@ -80,6 +50,7 @@ module face_back()
         material_z
         ], center=true);
 
+    // side nose support structures
     for (x = [-house_x/2-material_z/2, +house_x/2+material_z/2])
     {
         translate([
@@ -92,6 +63,41 @@ module face_back()
             material_z,
             house_z/1.4
             ], center=true);
+    }
+}
+
+module face_back()
+{
+    difference()
+    {
+        pentagon_with_support();
+
+        // bottom nose cutout
+        translate([
+            0,
+            0,
+            material_z/2
+            ])
+        cube([
+            house_x/3,
+            material_z*1.2,
+            material_z + hole_expansion
+            ], center=true);
+
+        // side nose cutouts
+        for (x=[-house_x/2+material_z/2, +house_x/2-material_z/2])
+        {
+            translate([
+                x,
+                0,
+                house_z/2
+                ])
+            cube([
+                material_z + hole_expansion,
+                material_z*1.2,
+                house_z/3
+                ], center=true);
+        }
     }
 }
 

@@ -72,7 +72,7 @@ module face_bottom()
             0
             ])
         cube([
-            material_z,
+            material_z + hole_expansion,
             wall_y/3,
             material_z*1.2
             ], center=true);

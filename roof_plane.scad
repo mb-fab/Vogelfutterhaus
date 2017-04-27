@@ -31,7 +31,7 @@ module roof_plane()
                 ])
             cube([
                 roof_hypothenuse/3,
-                material_z,
+                material_z + hole_expansion,
                 material_z*1.2
                 ], center=true);
         }

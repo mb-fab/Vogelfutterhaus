@@ -29,7 +29,7 @@ module face_front()
 
         // pattern
         translate([
-            0,
+            window_offset_x,
             0,
             window_offset_z,
             ])
@@ -55,7 +55,7 @@ module face_front()
             material_z + wall_z/2
             ])
         cube([
-            material_z,
+            material_z + hole_expansion,
             material_z*1.2,
             wall_z/3
             ], center=true);

@@ -2,15 +2,33 @@
 include <measures.scad>;
 use <screw.scad>;
 
+module face_side_plus_support()
+{
+    // base material
+    cube([
+        material_z,
+        house_y,
+        house_z
+        ], center=true);
+
+    // nose support structure
+    translate([
+        0,
+        0,
+        -house_z/2 - material_z/2
+        ])
+    cube([
+        material_z,
+        house_y - 2*material_z,
+        material_z
+        ], center=true);
+}
+
 module face_side()
 {
     difference()
     {
-        cube([
-            material_z,
-            house_y,
-            house_z
-            ], center=true);
+        face_side_plus_support();
 
         // hole
         for (i=[1:strap_hole_count])
@@ -86,23 +104,9 @@ module face_side()
         cube([
             material_z*1.2,
             house_y/3,
-            material_z
+            material_z + hole_expansion
             ], center=true);
     }
-
-
-    // nose support structure
-    translate([
-        0,
-        0,
-        -house_z/2 - material_z/2
-        ])
-    cube([
-        material_z,
-        house_y - 2*material_z,
-        material_z
-        ], center=true);
 }
 
 face_side();
-

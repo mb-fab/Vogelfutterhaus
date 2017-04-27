@@ -53,7 +53,7 @@ translate([
     0,
     house_z + roof_elevation +0.005
     ])
-roof();
+#roof();
 
 color("lightblue")
 translate([
